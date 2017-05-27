@@ -43,7 +43,11 @@ html {
     font-size: 20px;
   }
 }
-
+@media (min-width: 88em) {
+  html {
+    font-size: 22px;
+  }
+}
 
 /*
  * Sidebar
