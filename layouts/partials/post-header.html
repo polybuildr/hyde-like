@@ -1,0 +1,9 @@
+<h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+<time class="post-date" {{ printf "datetime=%s" (.Date.Format "2006-01-02T15:04:05-0700") | safeHTMLAttr }}>
+  {{ .Date.Format "Jan 2, 2006" }}
+</time>
+<ul class="tags">
+  {{ range .Params.tags }}
+    <li><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
+  {{ end }}
+</ul>
