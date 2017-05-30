@@ -9,11 +9,7 @@
           <a href="{{ .Permalink }}">{{ .Title }}</a>
         </h1>
         <span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-        <ul class="tags">
-          {{ range .Params.tags }}
-            <li><a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> </li>
-          {{ end }}
-        </ul>
+        {{ partial "tags.html" . }}
         <div class="post-content">
           {{ .Content }}
         </div>
