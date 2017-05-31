@@ -10,7 +10,10 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="{{ .Site.BaseURL }}">Home</a>
+        <a href="{{ .Site.BaseURL }}">Home</a>
+        {{ range .Site.Menus.main }}
+          <a href="{{.URL}}"> {{ .Name }} </a>
+        {{end}}
     </nav>
 
     <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
