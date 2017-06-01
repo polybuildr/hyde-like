@@ -502,3 +502,20 @@ ul.tags a {
 ul.tags a:before {
   content: '#';
 }
+
+/* Comments */
+#load-comments-btn {
+  background-color: #f6f6f6;
+  color: #888;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding: .5rem;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+#load-comments-btn:hover,
+#load-comments-btn:active {
+  background-color: #f3f3f3;
+  color: #666;
+}

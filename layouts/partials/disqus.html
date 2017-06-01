@@ -1,14 +1,17 @@
+<hr>
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
         this.page.url = '{{ .Permalink }}';
         this.page.identifier = '{{ .UniqueID }}';
     };
-    (function() {
+    function load_disqus() {
         var d = document, s = d.createElement('script');
         s.src = 'https://{{ .Site.Params.DisqusShortname }}.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
-    })();
+        d.getElementById('load-comments-btn').style.display = 'none';
+    };
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<button id="load-comments-btn" onclick="load_disqus()">Load Comments Section</button>
