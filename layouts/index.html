@@ -7,7 +7,12 @@
       <article class="post">
         {{ partial "post-header.html" . }}
         <div class="post-content">
-          {{ .Content }}
+          {{ .Summary }}
+          {{ if .Truncated }}
+          <div class="read-more-link">
+            <a href="{{ .Permalink }}">Read More…</a>
+          </div>
+          {{ end }}
         </div>
       </article>
       {{ end }}
