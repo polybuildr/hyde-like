@@ -12,6 +12,21 @@
   <title>{{ .Title }} · {{ .Site.Title }}</title>
   {{ end }}
 
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{ if eq .Kind "page" }}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="article:published_time" {{ printf "content=\"%s\"" (.Date.Format "2006-01-02T15:04:05-0700") | safeHTMLAttr }}>
+  <meta property="og:description" content="{{ .RawContent | plainify | truncate 160 }}">
+  <meta name="description" content="{{ .RawContent | plainify | truncate 160 }}">
+  {{ else }}
+  <meta property="og:type" content="website">
+  {{ if eq .Kind "home" }}
+  <meta property="og:description" content="{{ replace (.Site.Params.Description | plainify) "\n" " " }}">
+  <meta name="description" content="{{ replace (.Site.Params.Description | plainify) "\n" " " }}">
+  {{ end }}
+  {{ end }}
+
   <link rel="stylesheet" href="{{ .Site.BaseURL }}css/theme.css">
   <link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
