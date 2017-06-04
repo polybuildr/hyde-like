@@ -2,6 +2,8 @@
 <body class="{{ .Site.Params.themeColor }}">
   {{ partial "sidebar.html" . }}
   <div class="content container">
+    <h1>Posts tagged '#{{ .Data.Term }}'</h1>
+    <hr>
     <div class="posts">
       {{ range .Data.Pages }}
       <article class="post">
