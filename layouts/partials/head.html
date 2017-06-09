@@ -17,8 +17,8 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="{{ .Title }}">
   <meta property="article:published_time" {{ printf "content=\"%s\"" (.Date.Format "2006-01-02T15:04:05-0700") | safeHTMLAttr }}>
-  <meta property="og:description" content="{{ .RawContent | plainify | truncate 160 }}">
-  <meta name="description" content="{{ .RawContent | plainify | truncate 160 }}">
+  <meta property="og:description" content="{{ .Content | plainify | truncate 160 }}">
+  <meta name="description" content="{{ .Content | plainify | truncate 160 }}">
   {{ else }}
   <meta property="og:type" content="website">
   {{ if eq .Kind "home" }}
